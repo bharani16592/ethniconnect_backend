@@ -7,21 +7,20 @@ import org.springframework.web.bind.annotation.*;
 
 
 
-@CrossOrigin()
+
 @RestController
-//@RequestMapping
+@RequestMapping(path = "api/v1/CustSignup")
 @AllArgsConstructor
 public class CustSignupController {
 
     private final CustSignupService custSignupService;
 
-    @PostMapping("api/v1/CustSignup")
-    public void register(@RequestParam("email") String  email,
-                         @RequestParam("password") String password) {
-         custSignupService.register(email,password);
+    @PostMapping
+    public String register(@RequestBody CustSignupRequest request) {
+        return custSignupService.register(request);
     }
 
-    @GetMapping("api/v1/CustSignup/confirm")
+    @GetMapping(path = "confirm")
     public String confirm(@RequestParam("token") String token) {
         return custSignupService.confirmToken(token);
     }

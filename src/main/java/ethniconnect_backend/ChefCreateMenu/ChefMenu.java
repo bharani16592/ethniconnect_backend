@@ -13,7 +13,6 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Entity
 @Table(name = "chefmenu")
 public class ChefMenu {
@@ -28,7 +27,7 @@ public class ChefMenu {
     @Column(columnDefinition = "MEDIUMBLOB")
     private String menu_item_image;
     private String item_name;
-    private double menu_item_price;
+    private int menu_item_price;
     private String item_ingredients;
     private String item_intresting_facts;
     @Enumerated(EnumType.STRING)
@@ -38,8 +37,8 @@ public class ChefMenu {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cuisine_id")
     private CuisineCategory cuisineCategory;
-    @ManyToMany(mappedBy = "menu_items")
-    Set<Order> orders;
+//    @ManyToMany(mappedBy = "menu_items")
+//    Set<Order> orders;
 
    /* @OneToOne
     @JoinColumn (name="login_id", insertable = false, updatable = false)

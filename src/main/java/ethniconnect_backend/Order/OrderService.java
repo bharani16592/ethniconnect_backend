@@ -81,9 +81,9 @@ public class OrderService {
         existingOrder.setOrder_amount(order.getOrder_amount());
         existingOrder.setOrder_date(order.getOrder_date());
         existingOrder.setOrder_instructions(order.getOrder_instructions());
-        existingOrder.setMenu_id(order.getMenu_id());
+        //existingOrder.setMenu_id(order.getMenu_id());
         existingOrder.setPickup_time(order.getPickup_time());
-        existingOrder.setCust_id(order.getCust_id());
+        //existingOrder.setCust_id(order.getCust_id());
 
         return orderRepository.save(existingOrder);
 

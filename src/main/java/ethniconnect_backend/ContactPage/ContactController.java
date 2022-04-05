@@ -2,26 +2,19 @@ package ethniconnect_backend.ContactPage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-@CrossOrigin()
+
 @RestController
 public class ContactController {
     @Autowired
     private ContactService contactService;
-    @Autowired
-    private ContactRepository contactRepository;
 
     @PostMapping("/ContactRequest")
-    public void addcontactrequest(@RequestParam("name") String name,
-                                    @RequestParam("email") String email,
-                                    @RequestParam("message") String message
-                                    )
+    public Contact addcontactrequest(@RequestBody Contact contact)
     {
-        contactService.saveContactRequest(name,email,message);
 
-        //return "request added";
+        return contactService.saveContact(contact);
     }
 
     @GetMapping({"/ContactRequests"})

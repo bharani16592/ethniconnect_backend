@@ -11,4 +11,8 @@ public interface ChefRepository extends JpaRepository <Chef, Integer> {
             " FROM Chef c join c.ChefMenu m")*//*
     public List<ChefprofileResponse> getChefProfileInfo();*/
 
+    public List<Chef> getChefsByPrefCuisine(int cuisineId);
+
+    public List<Chef> getChefsByZip(String zipCode);
+
 }
