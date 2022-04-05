@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-@CrossOrigin()
-
 @RestController
 public class CustomerController {
 
@@ -23,10 +21,11 @@ public class CustomerController {
                           @RequestParam("cust_street") String street,
                           @RequestParam("cust_city") String city,
                           @RequestParam("cust_state") String state,
-                          @RequestParam("cust_zip") String zip
+                          @RequestParam("cust_zip") String zip,
+                          @RequestParam("chef_ethnicity") String ethnicity
                           ) throws Exception {
         customerService.saveCustomer(file, fname, lname,emailid,phone,street,
-                city,state,zip);
+                city,state,zip,ethnicity);
         return "customer details added";
     }
 
