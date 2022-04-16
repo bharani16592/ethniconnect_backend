@@ -57,7 +57,7 @@ public class OrderService {
         //orderRequest.setOrderid(order.getOrderid());
         order.setOrder_amount(orderRequest.getTotalprice());
         //order.setChef_loginid(orderRequest.getChefLoginid());
-        order.setCust_loginid(orderRequest.getCustomerLoginid());
+        order.setCustLoginid(orderRequest.getCustomerLoginid());
         order.setOrderItems(orderRequest.getOrderItems());
 
         order.setOrder_date(LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC));
@@ -118,6 +118,12 @@ public class OrderService {
 
         Orders order=  orderRepository.findByOrderid(orderid).get();
         return order;
+    }
+    public List<Orders> getOrderbycustomerId(long loginid) {
+
+        List<Orders> orders=  orderRepository.findAllByCustLoginid(loginid);
+        return orders;
+
     }
 
 
