@@ -140,7 +140,7 @@ public class ChefMenuService  {
     }
     public List<Chef> getChefByCuisineId(int cuisineId, int zipCode) {
         String url =
-                "https://www.zipcodeapi.com/pD8BE4nACZcPt5FtIIhB5n10wXpPERTDFeLyuBhQq2ueQzpSozsD5weTv6keaU6N/radius.json/"+zipCode+"/6/mile";
+                "https://www.zipcodeapi.com/rest/pD8BE4nACZcPt5FtIIhB5n10wXpPERTDFeLyuBhQq2ueQzpSozsD5weTv6keaU6N/radius.json/"+zipCode+"/6/mile";
         List<ChefMenu> chefMenu  = chefMenuRepository.findAllByCuisineCategory_Id(cuisineId);
         Set<Chef> chefSet = chefMenu.stream().map(ChefMenu::getChef).collect(Collectors.toSet());
         Root zipCodeApiResponse = restTemplate.getForObject(url, Root.class);
