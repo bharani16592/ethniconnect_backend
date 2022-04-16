@@ -34,8 +34,8 @@ public class ResetPasswordService {
         if(userCredentialsService.isEmailIdExist(resetPasswordRequest.getEmailId()))
         {
             String token = userCredentialsService.getToken(userCredentials);
-            String link = "http://ethniconnectbackendaws-env.eba-fa8ytper.us-east-2.elasticbeanstalk.com/api/v1/resetpassword/confirm?token=" + token;
-            //String link = "http://localhost:8080/api/v1/resetpassword/confirm?token=" + token;
+            //String link = "http://ethniconnectbackendaws-env.eba-fa8ytper.us-east-2.elasticbeanstalk.com/api/v1/resetpassword/confirm?token=" + token;
+            String link = "http://localhost:8080/api/v1/resetpassword/confirm?token=" + token;
             emailSender.ResentPwdSend(
                     resetPasswordRequest.getEmailId(),
                     emailService.buildResetPasswordEmail("User", link));
