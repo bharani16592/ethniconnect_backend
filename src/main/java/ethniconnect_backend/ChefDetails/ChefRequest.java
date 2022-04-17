@@ -24,4 +24,5 @@ public class ChefRequest {
     private String chef_fblink;
     private String chef_linkdin;
     private String chef_image;
+    private double avgRating;
 }

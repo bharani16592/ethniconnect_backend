@@ -33,6 +33,7 @@ public class Chef {
     @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
     private String chef_image;
+    @Column(name = "avgrating")
     private double avgRating;
 
 

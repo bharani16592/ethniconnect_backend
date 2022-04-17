@@ -2,6 +2,7 @@ package ethniconnect_backend.ChefCreateMenu;
 
 import ethniconnect_backend.ChefDetails.Chef;
 import ethniconnect_backend.ChefDetails.ChefRepository;
+import ethniconnect_backend.ChefDetails.ChefRequest;
 import ethniconnect_backend.Cuisines.CuisineCategoriesRepository;
 import ethniconnect_backend.Cuisines.CuisineCategory;
 import ethniconnect_backend.UserCredentials.UserCredentials;
@@ -153,44 +154,7 @@ public class ChefMenuService  {
         }
      return chefList;
     }
-    /*public ChefMenuGETResponse getChefMenuByLoginId(long login_id) {
-        Chef chef = new Chef();
-        chef.setLoginid(login_id);
-        List<ChefMenu> chefMenuList = chefMenuRepository.findAllByChef(chef);
-        List<ChefMenuResponse> chefMenuResponseList = new ArrayList<>();
 
-       *//* ChefMenuGETResponse chefMenuGETResponse = ChefMenuGETResponse.builder()
-                .cuisine_id(chefMenu.getCuisineCategory().getId())
-                .login_id(chefMenu.getLogin_id())
-                .menucategories(chefMenu.getMenucategories())
-                .item_name(chefMenu.getItem_name())
-                .menu_item_image(chefMenu.getMenu_item_image())
-                .menu_item_price(chefMenu.getMenu_item_price())
-                .item_ingredients(chefMenu.getItem_ingredients())
-                .item_intresting_facts(chefMenu.getItem_intresting_facts())
-                .week(chefMenu.getWeek())
-                .build();*//*
-        for(ChefMenu chefMenu:chefMenuList)
-        {
-            chefMenuResponseList.add
-                    ( ChefMenuResponse
-                            .builder()
-                            .menuid(chefMenu.getId())
-                            .menu_item_image(chefMenu.getMenu_item_image()!=null?chefMenu.getMenu_item_image():null)
-                            .menucategory(chefMenu.getMenucategories().toString())
-                            .cuisineCategory(chefMenu.getCuisineCategory().getCuisine_name())
-                            .menu_item_price(chefMenu.getMenu_item_price())
-                            .item_name(chefMenu.getItem_name())
-                            .item_ingredients(chefMenu.getItem_ingredients())
-                            .item_intresting_facts(chefMenu.getItem_intresting_facts())
-                            .week(chefMenu.getWeek()!=null?chefMenu.getWeek().toString():null)
-                            .build()
-                    );
-        }
-        return ChefMenuGETResponse.builder().chefMenuList(chefMenuResponseList).build();
-    }
-
-*/
     public ChefMenuGETResponse getChefMenuByLoginId(long login_id) {
         Chef chef = new Chef();
         chef.setLoginid(login_id);
