@@ -32,6 +32,7 @@ public class Orders {
    //private long cust_loginid;
     @Column(name="cust_loginid")
     private long custLoginid;
+    private int rating;
 
 
     @OneToMany

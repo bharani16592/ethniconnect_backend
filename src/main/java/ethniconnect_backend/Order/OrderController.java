@@ -37,4 +37,10 @@ public class OrderController {
         //return chefMenuService.getChefMenuByLoginId(loginidlong.longValue());
         return new ResponseEntity<List<Orders>>(orderService.getOrderbycustomerId(loginidlong.longValue()), HttpStatus.OK);
     }
+    @PutMapping("/updateRating")
+    public ResponseEntity<Orders> updateRating(@RequestBody OrderRequest orderRequest)
+    {
+        Orders orders= orderService.updateRatingByOrder(orderRequest);
+        return new ResponseEntity<Orders>(orders, HttpStatus.OK);
+    }
 }

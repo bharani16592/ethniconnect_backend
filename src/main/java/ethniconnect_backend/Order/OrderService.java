@@ -130,5 +130,23 @@ public class OrderService {
 
     }
 
+    public Orders updateRatingByOrder(OrderRequest orderRequest) {
+        Optional<Orders> orders =  orderRepository.findByOrderid(orderRequest.getOrderid());
+        Orders ordersObj = orders.get();
+        long chefLoginId = ordersObj.getOrderItems().get(0).getChefMenu().getChef().getLoginid();
+
+        Optional<Chef> chef = chefRepository.findByLoginid(chefLoginId);
+        Chef chefNew = chef.get();
+        double avgRating = chefNew.getAvgRating();
+        avgRating = (avgRating+orderRequest.getRatings())/2;
+        chefNew.setAvgRating(avgRating);
+        chefRepository.save(chefNew);
+        ordersObj.setRating(orderRequest.getRatings());
+        // ordersObj.setChef_loginid(orderRequest.getChefLoginId());
+        ordersObj.setOrder_date(LocalDateTime.ofInstant(Instant.now(), ZoneOffset.UTC));
+        Orders savedOrder = orderRepository.save(ordersObj);
+        return savedOrder;
+    }
+
 
 }

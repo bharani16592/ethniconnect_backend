@@ -16,6 +16,8 @@ public class OrderRequest {
     private int orderid;
     private double totalprice;
     private List<OrderItem> orderItems;
+    private int ratings;
+    private int chefLoginId;
 
 }
 
