@@ -96,14 +96,18 @@ public class OrderService {
         String chefEmailId= chef.get().getChef_emailid();
         String itemname = chefMenu.getItem_name();
         int quantity = orderItems.get(0).getQuantity();
+        String customerEmail= userCredentialsRepository.findByLoginid(orderRequest.getCustomerLoginid()).get().getEmail();
 
         emailSender.emailChefOrderDetails(
                chefEmailId,
                 //"ethniconnect@gmail.com",
                 emailService.buildOrderRequestEmail(savedOrder.getOrderid(),
-                        customer.get().getCust_emailid() ,orderSummary));
+                        //customer.get().getCust_emailid() ,
+                        customerEmail,
+                        orderSummary));
         emailSender.emailCustomerOrderDetails(
-                customer.get().getCust_emailid(),
+                customerEmail,
+                //customer.get().getCust_emailid(),
                 //"ethniconnect@gmail.com",
                 emailService.buildOrderDetailsEmail(savedOrder.getOrderid(),
                         chefEmailId,orderSummary));

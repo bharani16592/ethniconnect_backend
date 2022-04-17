@@ -29,10 +29,9 @@ public class Orders {
     private int orderid;
     private LocalDateTime order_date;
     private double order_amount;
-   // private long cust_loginid;
+   //private long cust_loginid;
     @Column(name="cust_loginid")
     private long custLoginid;
-
 
 
     @OneToMany
