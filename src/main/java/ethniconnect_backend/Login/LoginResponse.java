@@ -12,5 +12,6 @@ public class LoginResponse {
     private boolean isChef;
     private boolean isCustomer;
     private String errormessage;
+    private boolean isChefProfile;
 
 }
