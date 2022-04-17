@@ -29,6 +29,7 @@ public class OrderController {
 
         return new ResponseEntity<Orders>(orderService.getOrder(orderid), HttpStatus.OK);
     }
+
     @GetMapping("/orderbyCustLoginId/{loginId}")
     public ResponseEntity<List<Orders>> getOrderbycustomerId(@PathVariable int loginId)
     {
@@ -36,4 +37,5 @@ public class OrderController {
         //return chefMenuService.getChefMenuByLoginId(loginidlong.longValue());
         return new ResponseEntity<List<Orders>>(orderService.getOrderbycustomerId(loginidlong.longValue()), HttpStatus.OK);
     }
+
 }

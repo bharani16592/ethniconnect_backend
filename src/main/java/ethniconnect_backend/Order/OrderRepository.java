@@ -9,6 +9,5 @@ import java.util.Optional;
 public interface OrderRepository extends JpaRepository<Orders, Integer> {
 
     Optional<Orders> findByOrderid(int id);
-
     List<Orders> findAllByCustLoginid(long loginid);
 }
