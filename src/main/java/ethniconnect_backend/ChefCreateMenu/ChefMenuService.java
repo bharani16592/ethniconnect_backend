@@ -159,6 +159,8 @@ public class ChefMenuService  {
         Chef chef = new Chef();
         chef.setLoginid(login_id);
         List<ChefMenu> chefMenuList = chefMenuRepository.findAllByChef(chef);
+        //List<ChefMenu> chefMenuListCuisine = chefMenuRepository.findAllByCuisineCategory_Id(cuisineid);
+
         List<ChefMenuResponse> chefMenuResponseList = new ArrayList<>();
 
        

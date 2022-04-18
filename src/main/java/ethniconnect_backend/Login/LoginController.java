@@ -57,6 +57,7 @@ public class LoginController
             loginResponse.setErrormessage("Account not activated");
         }
 
+
         //SecurityContextHolder.getContext().setAuthentication(authentication);
         return new ResponseEntity<>(loginResponse, HttpStatus.UNAUTHORIZED);
     }

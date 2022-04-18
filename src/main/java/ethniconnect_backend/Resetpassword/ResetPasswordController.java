@@ -3,6 +3,8 @@ package ethniconnect_backend.Resetpassword;
 import ethniconnect_backend.UserCredentials.UserCredentials;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 @CrossOrigin()
@@ -15,10 +17,13 @@ public class ResetPasswordController {
     ResetPasswordService resetPasswordService;
 
     @PostMapping(path="resetpassword")
-    public  String restpassword(@RequestBody ResetPasswordRequest resetPasswordRequest)
+    public ResponseEntity<ResetPasswordResponse> resetpassword(@RequestBody ResetPasswordRequest resetPasswordRequest)
     {
+
         resetPasswordService.resetPassword(resetPasswordRequest);
-        return resetPasswordRequest.getEmailId();
+        ResetPasswordResponse resetPasswordResponse = new ResetPasswordResponse();
+        resetPasswordResponse.setEmailId(resetPasswordRequest.getEmailId());
+        return new ResponseEntity(resetPasswordResponse,HttpStatus.OK);
     }
 
     @GetMapping(path = "/resetpassword/confirm")
